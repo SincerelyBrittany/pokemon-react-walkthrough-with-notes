@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Pokemon from './Pokemon'
 
 export default function AllPokemonContainer(props){
   
@@ -7,28 +8,32 @@ export default function AllPokemonContainer(props){
   //1. it gives us back a way to get the state, 2. it gives us a way to set the state
   //Below pokemon is a getter, and setPokemon is a function that takes in as an arugment the NEW state
   //useState([]) is pass in the initial value of pokemon to be and in this case it is an empty array
-  const [pokemon, setPokemon] = useState([])
+  const [pokemons, setPokemon] = useState([])
 
   useEffect(()=>{
     async function fetchPokemon(){
         try{
-          // const res = await fetch('https://pokeapi.co/api/v2/pokemon')
-          if(!res.ok){throw res}
+          const res = await fetch('https://pokeapi.co/api/v2/pokemon')
+          if(!res.ok){
+            throw res
+          }
           const data = await res.json()
           const initialPokemonList = data.results
           const pokeFullDataList = []
           for (let p of initialPokemonList){
             const pokeRes = await fetch(p.url)
-            if(!res.ok){throw res}
+            if(!res.ok){
+              throw res
+            }
             const pokeResult = await pokeRes.json()
             pokeFullDataList.push(pokeResult)
           }
-          console.log(data)
-          console.log(pokeFullDataList)
+          // console.log(data)
+          // console.log(pokeFullDataList)
           setPokemon(pokeFullDataList)
         }
         catch(err){
-          //alert("an error occurred")
+          // alert("an error occurred")
         }
       }
       fetchPokemon()
@@ -39,7 +44,17 @@ export default function AllPokemonContainer(props){
 
  // https://pokeapi.co/api/v2/
 
+  const renderPokeCards = () => {
+   if(pokemons !== []){
+    return pokemons.map(p => {
+       return <Pokemon name={p.name} />
+    })
+  }
+  }
+
   return(
-    <div></div>
+    <div>
+    {renderPokeCards()}
+    </div>
   )
 }
