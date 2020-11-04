@@ -5,6 +5,12 @@ background-color: #fffff0;
 border: 3px solid red;
 `
 
+const PokemonCard = styled.div`
+  background-color: yellow;
+  border: 1px solid blue;
+`
+
 export {
-  PokeDiv
+  PokeDiv,
+  PokemonCard
 }

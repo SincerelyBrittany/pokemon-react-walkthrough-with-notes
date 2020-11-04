@@ -12,7 +12,7 @@ export default function AllPokemonContainer(props){
   useEffect(()=>{
     async function fetchPokemon(){
         try{
-          const res = await fetch('https://pokeapi.co/api/v2/pokemon')
+          // const res = await fetch('https://pokeapi.co/api/v2/pokemon')
           if(!res.ok){throw res}
           const data = await res.json()
           const initialPokemonList = data.results
@@ -25,9 +25,10 @@ export default function AllPokemonContainer(props){
           }
           console.log(data)
           console.log(pokeFullDataList)
+          setPokemon(pokeFullDataList)
         }
         catch(err){
-          alert("an error occurred")
+          //alert("an error occurred")
         }
       }
       fetchPokemon()
