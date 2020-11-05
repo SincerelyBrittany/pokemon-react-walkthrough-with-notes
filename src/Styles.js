@@ -13,7 +13,14 @@ const PokemonCard = styled.div`
   padding: 10px;  
 `
 
+const PokeBtn = styled.button`
+    background-color: red; 
+    color: yellow;
+    font: 2em;
+`
+
 export {
   PokeDiv,
-  PokemonCard
+  PokemonCard,
+  PokeBtn
 }

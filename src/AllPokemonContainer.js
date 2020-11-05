@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Pokemon from './Pokemon'
-
+import {PokeBtn} from './Styles'
 export default function AllPokemonContainer(props){
   
 
@@ -10,6 +10,8 @@ export default function AllPokemonContainer(props){
   //useState([]) is pass in the initial value of pokemon to be and in this case it is an empty array
   const [pokemons, setPokemon] = useState([]);
 
+  const [nextURL, setNextURL] = useState('')
+
   useEffect(()=>{
     (async function fetchPokemon(){
         try{
@@ -18,6 +20,7 @@ export default function AllPokemonContainer(props){
             throw res
           }
           const data = await res.json()
+          setNextURL(data.next) 
           const initialPokemonList = data.results
           const pokeFullDataList = []
           for (let p of initialPokemonList){
@@ -52,10 +55,14 @@ export default function AllPokemonContainer(props){
     })
   }
   
+  const handleNextPage = () => {
+
+  }
 
   return(
     <div>
     {renderPokeCards()}
+    <PokeBtn onClick={handleNextPage}> Next </PokeBtn>
     </div>
   )
 }
