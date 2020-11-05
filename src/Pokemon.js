@@ -1,10 +1,10 @@
 import React from 'react';
-import {PokeCard} from './Styles';
+import {PokemonCard} from './Styles';
 
 export default function Pokemon(props){
   return(
-    <PokeCard>
+    <PokemonCard>
       <h2> {props.name} </h2>
-    </PokeCard>
+    </PokemonCard>
   )
 }

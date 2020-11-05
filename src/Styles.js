@@ -8,6 +8,9 @@ border: 3px solid red;
 const PokemonCard = styled.div`
   background-color: yellow;
   border: 1px solid blue;
+  display: inline-block;
+  margin:10px;
+  padding: 10px;  
 `
 
 export {
