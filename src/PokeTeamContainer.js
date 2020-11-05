@@ -17,6 +17,7 @@ export default function PokeTeamContainer(props){
 
   return(
     <PokeDiv>
+      <h1> Team Area </h1>
       {renderPokemon()}
     </PokeDiv>
   )
