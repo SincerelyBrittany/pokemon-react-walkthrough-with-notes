@@ -5,6 +5,7 @@ export default function Pokemon(props){
   return(
     <PokemonCard>
       <h2> {props.name} </h2>
+      <img src={props.spriteUrl} />
     </PokemonCard>
   )
 }
