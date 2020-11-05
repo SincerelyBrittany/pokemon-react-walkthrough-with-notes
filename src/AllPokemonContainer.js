@@ -48,6 +48,10 @@ export default function AllPokemonContainer(props){
 
  // https://pokeapi.co/api/v2/
 
+ const choosePokemon = id => {
+   
+ }
+
   const renderPokeCards = () => {
     console.log("hello")
     return pokemons.map(p => {
