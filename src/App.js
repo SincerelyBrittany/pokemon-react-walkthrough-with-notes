@@ -13,7 +13,7 @@ const handleChoosePokemon = (pokeobj) => {
 }
   return (
     <div className="App">
-      <PokeTeamContainer />
+      <PokeTeamContainer pokemon={choosenPokemon}/>
       <AllPokemonContainer handleChoosePokemon={handleChoosePokemon}/>
     </div>
   );
