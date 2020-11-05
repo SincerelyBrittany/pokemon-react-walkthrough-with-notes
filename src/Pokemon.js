@@ -2,11 +2,16 @@ import React from 'react';
 import {PokemonCard, PokeBtn} from './Styles';
 
 export default function Pokemon(props){
+
+  const handleClick = e => {
+
+  }
+
   return(
     <PokemonCard>
       <h2> {props.name} </h2>
       <img src={props.spriteUrl} />
-      <PokeBtn>Choose</PokeBtn>
+      <PokeBtn onClick={handleClick}>Choose</PokeBtn>
     </PokemonCard>
   )
 }

@@ -7,10 +7,14 @@ export default function App() {
 
   const [choosenPokemon, setChoosenPokemon] = useState([])
 
+const handleChoosePokemon = (pokeobj) => {
+    const newPokemon = [...choosenPokemon, pokeobj]
+    setChoosenPokemon(newPokemon)
+}
   return (
     <div className="App">
       <PokeTeamContainer />
-      <AllPokemonContainer />
+      <AllPokemonContainer handleChoosePokemon={handleChoosePokemon}/>
     </div>
   );
 }
